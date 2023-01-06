@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*
+{
+    font-family: 'poppins', sans-serif !important;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar
+{
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb
+{
+    background: linear-gradient(to top,#2b121c, #40679c);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover
+{
+    background: #6f263e;
+
+}
+
+.page
+{
+    padding-top: 20px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content:center !important;
+    background: linear-gradient(45deg,#e4cdd7, #d8e0ee);
+    background: url(imgs/bg.png);
+    background-attachment: fixed;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.messagesBox
+{
+    border: 2px solid #40679c;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));
+    /* box-shadow: 7px 7px  60px; */
+    box-shadow: inset 7px 7px 50px #11050a;
+    border-radius: 20px;
+    height: 80vh;
+    width: 70% !important;
+    overflow: scroll;
+    padding-inline: 2000px;
+}
+
+.secondPersonImage
+{
+    border-radius: 9999px;
+    border: 2px solid rgba(255,255,255,0.8);
+    height: 50px;
+    margin-right: 5px;
+}
+
+.secondPersonMessage
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.secondPersonMessageEdited
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.Name
+{
+    margin: 0 !important;
+    align-items: center;
+    align-content: center;
+    color: white;
+    font-size: 0.9em;
+    font-weight: 500;
+    padding: 8px;
+    border-radius: 18px;
+    margin-left: 5px;
+}
+
+.date
+{
+    margin: 0 !important;
+    align-items: center;
+    align-content: center;
+    color: white;
+    font-size: 0.9em;
+    font-weight: 300;
+    padding: 8px;
+    border-radius: 18px;
+    margin-left: 5px;
+}
+
+.messageItSelf
+{
+    margin: 0 !important;
+    align-items: center;
+    align-content: center;
+    background: rgba(255,255,255,0.8);
+    color: #11050a;
+    font-weight: 500;
+    padding-inline: 14px;
+    padding-block: 8px;
+    border-radius: 18px;
+    margin-left: 5px;
+    max-width: 80%;
+}
+
+.messageItSelfSecondPerson
+{
+
+}
+
+.firstPerson
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.firstPersonImage
+{
+    border-radius: 9999px;
+    border: 2px solid rgba(255,255,255,0.8);
+    height: 50px;
+    margin-left: 5px;
+}
+
+
+
+.typeMessage
+{
+    padding-left: 0 !important;
+    width: 70% !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 0 !important;
+}
+
+.typeMessage input
+{
+    outline: none;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 8px 0;
+    padding: 0 15px;
+    height: 42px;
+    border-radius: 20px;
+    border: 2px solid #40679c;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));
+    color: white;
+    width: 91%;
+}
+
+.sendBtn
+{
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    padding: 5px 20px;
+    margin-left: 10px;
+    color: white;
+    background: #40679c;
+    transition: 0.5s ease;
+}
+
+.sendBtn:hover
+{
+    background: #5482c3;
+}
+
+
+.cont {
+    padding-top: 20px;
+    padding-left: 200px;
+}
+    
+    
