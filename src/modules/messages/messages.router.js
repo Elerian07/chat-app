@@ -3,8 +3,9 @@ import { auth } from "../../middleware/auth.js";
 import * as messageController from "./controller/messages.controller.js"
 const router = Router()
 
-router.get("/", auth(), messageController.getAll)
+router.get("/msg/:id", auth(), messageController.getAll)
 router.post("/", auth(), messageController.addMessage)
+router.get("/chats", auth(), messageController.getAllChats)
 
 
 

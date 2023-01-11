@@ -3,23 +3,28 @@ import messageModel from "../../../../DB/model/messageModel.js"
 import { asyncHandler } from "../../../service/asyncHandler.js"
 
 export const getAll = asyncHandler(async (req, res, next) => {
-    const allMessages = await find({ model: messageModel })
+    const { id } = req.params
+    const allMessages = await find({ model: messageModel, condition: { _id: id } })
     res.status(200).json({ message: "Done", allMessages })
 })
 
-
+export const getAllChats = asyncHandler(async (req, res, next) => {
+    const allChats = await find({ model: messageModel })
+    res.status(200).json({ message: "Done", allChats })
+})
 export const addMessage = asyncHandler(async (req, res, next) => {
     let { content, receivedBy } = req.body;
-    let { sentBy } = req.user._id;
+
     if (!content) { return next(new Error("you can't send an empty message", { cause: 400 })) }
 
-    let existChat = await findOne({ model: messageModel, condition: { $and: [{ sentBy }, { receivedBy }] } });
+    let existChat = await findOne({ model: messageModel, condition: { $and: [{ sentBy: req.user._id }, { receivedBy }] } });
+
 
     if (existChat) {
 
         let newMessage = await findOneAndUpdate({
             model: messageModel,
-            condition: { $and: [{ sentBy }, { receivedBy }] },
+            condition: existChat._id,
             data: { $push: { content } },
             options: { new: true }
         })
