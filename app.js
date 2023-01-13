@@ -5,12 +5,12 @@ import dotenv from 'dotenv'
 //set directory dirname 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 dotenv.config({ path: path.join(__dirname, './config/.env') })
-import { handleError } from './src/service/asyncHandler.js';
+import { handleError } from '../chat app/src/service/asyncHandler.js';
 import cors from 'cors';
 import connectDB from "./DB/DBconnection.js";
-import * as indexRouter from "./src/modules/index.router.js";
-
-
+import * as indexRouter from "../chat app/src/modules/index.router.js";
+import { Socket } from 'socket.io';
+import { Server } from 'socket.io'
 
 const app = express();
 
@@ -37,4 +37,29 @@ app.use(handleError)
 
 connectDB()
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+
+
+// const io = new Server(server, {
+//     cors: {
+//         origin: "http://localhost:3000",
+//         credentials: true
+//     }
+// })
+
+// global.onlineUsers = new Map();
+
+// io.on("connection", (Socket) => {
+//     global.chatSocket = Socket;
+//     Socket.on("add-user", (userId) => {
+//         onlineUsers.set(userId, Socket.id)
+//     })
+
+//     Socket.on("send-msg", (data) => {
+//         const sendUserSocket = onlineUsers.get(data.to);
+//         if (sendUserSocket) {
+//             Socket.to(sendUserSocket).emit("msg-recieve".data.msg)
+//         }
+//     })
+// })
+

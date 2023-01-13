@@ -31,40 +31,25 @@ const userSchema = new Schema({
         type: Boolean,
         default: false,
     },
-    image: String,
-    public_id: String,
+    image: {
+        type: String
+    },
+    public_id: {
+        type: String
+    },
     friends: [{
-        type: String,
-        image: String,
-        id: {
-            type: Types.ObjectId,
-            ref: "User"
-        }
-    }],
-    friendRequests: {
-        type: [{
-
-            name: String,
-            id: {
-                type: Types.ObjectId,
-                ref: "User"
-            }
-        }]
-    },
-    sentRequests: {
-        type: [{
-
-            name: String,
-            id: {
-                type: Types.ObjectId,
-                ref: "User"
-            }
-        }]
-    },
-    chat: {
         type: Types.ObjectId,
-        ref: "Chat"
-    }
+        ref: "User"
+    }],
+    friendRequests: [{
+        type: Types.ObjectId,
+        ref: "User"
+
+    }],
+    sentRequests: [{
+        type: Types.ObjectId,
+        ref: "User"
+    }]
 }, {
     timestamps: true
 })

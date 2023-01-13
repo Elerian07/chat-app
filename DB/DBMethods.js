@@ -1,7 +1,7 @@
 import { model } from 'mongoose';
 
 // find
-export const find = async ({ model, condition, select, limit = 10, skip = 0, populate = [] } = {}) => {
+export const find = async ({ model, condition = {}, select = "", limit = 10, skip = 0, populate = [] } = {}) => {
     let result = await model.find(condition).skip(skip).limit(limit).select(select).populate(populate);
     return result;
 }
